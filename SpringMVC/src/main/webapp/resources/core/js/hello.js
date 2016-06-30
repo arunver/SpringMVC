@@ -1,10 +1,10 @@
-function post(path, params, method) {
-	method = method || "post"; 
+function post(path) {
+	var method = "GET"; 
 
 	var form = document.createElement("form");
 	form.setAttribute("method", method);
 	form.setAttribute("action", path);
-
+/*
 	for ( var key in params) {
 		if (params.hasOwnProperty(key)) {
 			var hiddenField = document.createElement("input");
@@ -16,6 +16,6 @@ function post(path, params, method) {
 		}
 	}
 
-	document.body.appendChild(form);
+*/	document.body.appendChild(form);
 	form.submit();
 }
