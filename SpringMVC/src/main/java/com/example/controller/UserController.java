@@ -87,12 +87,13 @@ public class UserController {
 				// Add message to flash scope
 				redirectAttributes.addFlashAttribute("css", "success");
 				if(user.isNew()){
+					 id++;
+					 user.setId(id);
 				  redirectAttributes.addFlashAttribute("msg", "User added successfully!");
 				}else{
 				  redirectAttributes.addFlashAttribute("msg", "User updated successfully!");
 				}
-				 id++;
-				 user.setId(id);
+				
 				userService.saveOrUpdate(user);
 				
 				// POST/REDIRECT/GET
@@ -122,7 +123,7 @@ public class UserController {
 		}
 		
 		@RequestMapping(value="/users/{id}/delete", method=RequestMethod.POST)
-		public String deleteUser(@PathVariable("id") int id, Model model,final RedirectAttributes redirectAttributes)
+		public String deleteUser(@PathVariable("id") int id,final RedirectAttributes redirectAttributes)
 		{
 			logger.debug("deleteUser() id: {}", id);
 			
@@ -144,7 +145,7 @@ public class UserController {
 			
 			populateDefaultModel(model);
 			
-			return "users/userform";
+			return "users/userForm";
 		}
 		
 		private void populateDefaultModel(Model model) {

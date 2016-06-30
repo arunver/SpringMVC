@@ -44,10 +44,17 @@ public class UserDaoImpl implements UserDao{
 
 	@Override
 	public void update(User user) {
-		userList.get(user.getId()).setName(user.getName());
-		userList.get(user.getId()).setAddress(user.getAddress());
-		userList.get(user.getId()).setCountry(user.getCountry());
-		userList.get(user.getId()).setEmail(user.getEmail());
+		
+		System.out.println(user.getId());
+		System.out.println(user.getName());
+		
+		User obj= userList.get(user.getId()-1);
+		obj.setName(user.getName());
+		obj.setCountry(user.getCountry());
+		obj.setFramework(user.getFramework());
+		obj.setAddress(user.getAddress());
+		obj.setPassword(user.getPassword());
+		obj.setSkill(user.getSkill());
 		
 	}
 
