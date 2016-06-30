@@ -81,7 +81,7 @@ public class UserController {
 
 			if (result.hasErrors()) {
 				populateDefaultModel(model);
-				return "users/userform";
+				return "users/userForm";
 			} else {
 
 				// Add message to flash scope
@@ -123,7 +123,7 @@ public class UserController {
 		}
 		
 		@RequestMapping(value="/users/{id}/delete", method=RequestMethod.POST)
-		public String deleteUser(@PathVariable("id") int id,final RedirectAttributes redirectAttributes)
+		public String deleteUser(@PathVariable("id") int id, Model model,final RedirectAttributes redirectAttributes)
 		{
 			logger.debug("deleteUser() id: {}", id);
 			

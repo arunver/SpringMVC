@@ -16,7 +16,6 @@ function post(path, params, method) {
 		}
 	}
 
-	
 	document.body.appendChild(form);
 	form.submit();
 }
