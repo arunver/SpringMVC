@@ -105,7 +105,7 @@
 	</dependencies>
 
 	<build>
-	    <finalName>SpringMVCSecruityMavenApp</finalName>
+	    <finalName>SpringMVC</finalName>
 	    <plugins>
 		<plugin>
 		     <groupId>org.apache.maven.plugins</groupId>
