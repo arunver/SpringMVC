@@ -122,7 +122,7 @@ public class UserController {
 
 		}
 		
-		@RequestMapping(value="/users/{id}/delete", method=RequestMethod.POST)
+		@RequestMapping(value="/users/{id}/delete", method=RequestMethod.GET)
 		public String deleteUser(@PathVariable("id") int id, Model model,final RedirectAttributes redirectAttributes)
 		{
 			logger.debug("deleteUser() id: {}", id);
