@@ -20,12 +20,17 @@ public class UserDaoImpl implements UserDao{
 		System.out.println(id);
 		System.out.println(userList.size());
 		
-		if(userList.size()==0)
-			return null;
-		else if(userList.size()<id)
-			return null;
-		else
-			return userList.get(--id);
+		Iterator<User> it= userList.iterator();
+		while(it.hasNext())
+		{
+			User obj=it.next();
+			if(obj.getId()== id)
+				return obj;
+			else
+				return null;
+		}
+		
+		return null;
 		
 	}
 
@@ -45,13 +50,17 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public void update(User user) {
 		
-		User obj= userList.get(user.getId()-1);
-		obj.setAddress(user.getAddress());
-		obj.setPassword(user.getPassword());
-		obj.setCountry(user.getCountry());
-		obj.setEmail(user.getEmail());
-		obj.setSex(user.getSex());
-		obj.setSkill(user.getSkill());
+		Iterator<User> it= userList.iterator();
+		while(it.hasNext())
+		{
+			User obj= it.next();
+			while(obj.getId() == user.getId())
+			{
+				obj.setAddress(user.getAddress());
+				obj.setSkill(user.getSkill());
+				obj.setFramework(user.getFramework());
+			}
+		}
 		
 		
 	}
