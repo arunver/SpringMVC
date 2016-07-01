@@ -19,28 +19,18 @@ public class UserDaoImpl implements UserDao{
 		// TODO Auto-generated method stub
 		System.out.println(id);
 		System.out.println(userList.size());
-		boolean found=false;
-		int indexFound=-1;
-		if(userList.size()==0)
-			found=false;
-		else if(userList.size()>0)
+
+		Iterator<User> it= userList.iterator();
+		while(it.hasNext())
 		{
-			for(int i=0;i<userList.size();i++)
-			{
-				if(userList.get(i).getId() == id)
-				{
-					found = true;
-					indexFound = i;
-					break;
-				}
-			}
+			User obj=it.next();
+			if(obj.getId()== id)
+				return obj;
+			else
+				return null;
 		}
-		if(found)
-			return userList.get(indexFound);
-		else
-			return null;
 		
-		
+		return null;		
 	}
 
 	@Override
@@ -65,8 +55,7 @@ public class UserDaoImpl implements UserDao{
 		obj.setCountry(user.getCountry());
 		obj.setEmail(user.getEmail());
 		obj.setSex(user.getSex());
-		obj.setSkill(user.getSkill());
-		
+		obj.setSkill(user.getSkill());		
 		
 	}
 
