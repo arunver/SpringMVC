@@ -6,4 +6,5 @@ com\example\service\HelloWorldService.class
 com\example\model\User.class
 com\example\validator\UserValidator.class
 com\example\controller\UserController.class
+com\example\validator\MyValidator.class
 com\example\dao\UserDaoImpl.class
